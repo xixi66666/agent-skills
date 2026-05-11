@@ -161,7 +161,59 @@ powershell -ExecutionPolicy Bypass -File .\scripts\sync.ps1 -MirrorSkills
 
 ## 在一台电脑上新增或修改 skills
 
-先正常安装或编辑本机的全局 skills。确认无误后，把当前电脑的全局 skills 回写到仓库：
+以后安装 GitHub 上的 skill，推荐使用本仓库提供的全局安装脚本。它会自动把安装目标设置为当前用户的 `~/.agents/skills`，避免误装到 `~/.codex/skills`。
+
+使用 `owner/repo + path` 安装：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\install-github-skill-global.ps1 `
+  -Repo owner/repo `
+  -Path path/to/skill
+```
+
+使用 GitHub URL 安装：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\install-github-skill-global.ps1 `
+  -Url https://github.com/owner/repo/tree/main/path/to/skill
+```
+
+一次安装多个 skill：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\install-github-skill-global.ps1 `
+  -Repo owner/repo `
+  -Path path/to/skill-a,path/to/skill-b
+```
+
+安装后立即回写到本仓库：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\install-github-skill-global.ps1 `
+  -Repo owner/repo `
+  -Path path/to/skill `
+  -ExportLocal
+```
+
+然后提交并推送：
+
+```powershell
+git status
+git add .
+git commit -m "Add global skill"
+git push
+```
+
+脚本也支持这些可选参数：
+
+```text
+-Ref <branch-or-tag>       指定 Git ref，默认 main
+-Name <skill-name>         单个 skill 安装时指定目标目录名
+-Method auto|download|git  指定安装方式，默认 auto
+-ExportLocal               安装成功后运行 export-local.ps1 -SkipMcp
+```
+
+如果是手动编辑本机的全局 skills，确认无误后，把当前电脑的全局 skills 回写到仓库：
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\export-local.ps1
