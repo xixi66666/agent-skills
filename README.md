@@ -32,6 +32,101 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install.ps1
 
 安装完成后重启 Codex，让新的全局 skills 和 MCP 配置被重新读取。
 
+## 已有 skills 或 MCP 的电脑首次接入
+
+如果另一台电脑已经安装过部分 skills 或 MCP，可以直接接入，但第一次建议使用默认安装，不要使用 `-MirrorSkills`。
+
+推荐流程：
+
+```powershell
+git clone https://github.com/xixi66666/agent-skills.git
+cd agent-skills
+powershell -ExecutionPolicy Bypass -File .\scripts\install.ps1
+```
+
+默认安装会做这些事：
+
+```text
+1. 将仓库里的 skills 复制到当前电脑的 ~/.agents/skills
+2. 不删除当前电脑已有但仓库里没有的 skills
+3. 备份当前电脑的 ~/.codex/config.toml
+4. 只替换与 mcp/shared.toml 同名的 [mcp_servers.*] 配置段
+5. 保留模型设置、项目 trust、插件配置、登录态、sessions、cache、sqlite 状态
+```
+
+第一次接入时不要运行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\install.ps1 -MirrorSkills
+```
+
+`-MirrorSkills` 会让 `~/.agents/skills` 与仓库完全一致，包括删除仓库里不存在的本机 skills。它适合电脑已经统一之后做强制收敛，不适合第一次合并。
+
+## 合并另一台电脑独有的 skills
+
+如果另一台电脑上有想保留并纳入统一仓库的 skills，先按默认方式安装仓库内容，再把最终的本机全局 skills 回写到仓库：
+
+```powershell
+git clone https://github.com/xixi66666/agent-skills.git
+cd agent-skills
+powershell -ExecutionPolicy Bypass -File .\scripts\install.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\export-local.ps1
+git status
+git add .
+git commit -m "Merge skills from another host"
+git push
+```
+
+然后其他电脑运行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\sync.ps1
+```
+
+这样可以把那台电脑独有的 skills 也纳入统一快照。
+
+## 合并另一台电脑独有的 MCP
+
+MCP 不建议自动从其他电脑导出到仓库，因为 MCP 配置里可能包含本机路径、私有服务地址、环境变量名或敏感配置。
+
+如果另一台电脑有需要共享的 MCP，请手动打开那台电脑的：
+
+```text
+~/.codex/config.toml
+```
+
+找到对应的：
+
+```toml
+[mcp_servers.xxx]
+```
+
+确认不包含真实 token、密码、私钥或只适用于单台电脑的绝对路径后，再复制到本仓库的：
+
+```text
+mcp/shared.toml
+```
+
+如果必须写本机路径，使用占位符：
+
+```toml
+args = ["{{USERPROFILE}}\\some\\tool"]
+```
+
+改完后提交推送：
+
+```powershell
+git add mcp/shared.toml
+git commit -m "Merge MCP config from another host"
+git push
+```
+
+其他电脑再运行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\sync.ps1
+```
+
 ## 日常同步
 
 其他电脑上有更新后，在本机运行：
