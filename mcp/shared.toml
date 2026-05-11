@@ -1,0 +1,67 @@
+# Shared MCP servers managed by codex-global-config.
+# Machine-specific paths should use placeholders such as {{USERPROFILE}} and
+# will be expanded by scripts/install.ps1 before writing ~/.codex/config.toml.
+
+[mcp_servers.chrome-devtools]
+command = "cmd"
+args = ["/c", "npx", "-y", "chrome-devtools-mcp@latest"]
+startup_timeout_sec = 60.0
+
+[mcp_servers.chrome-devtools.env]
+PROGRAMFILES = 'C:\Program Files'
+SystemRoot = 'C:\Windows'
+
+[mcp_servers.chrome-devtools.tools.evaluate_script]
+approval_mode = "approve"
+
+[mcp_servers.chrome-devtools.tools.take_snapshot]
+approval_mode = "approve"
+
+[mcp_servers.neon]
+url = "https://mcp.neon.tech/mcp"
+
+[mcp_servers.supabase]
+url = "https://mcp.supabase.com/mcp"
+
+[mcp_servers.figma]
+url = "https://mcp.figma.com/mcp"
+
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"
+
+[mcp_servers.ref]
+url = "https://api.ref.tools/mcp"
+
+[mcp_servers.replicate]
+command = "cmd"
+args = ["/c", "npx", "-y", "replicate-mcp@latest"]
+startup_timeout_sec = 120.0
+
+[mcp_servers.vercel]
+url = "https://mcp.vercel.com"
+
+[mcp_servers.edgeone-pages]
+command = "cmd"
+args = ["/c", "npx", "-y", "edgeone-pages-mcp-fullstack@latest"]
+startup_timeout_sec = 120.0
+
+[mcp_servers.cloudflare]
+url = "https://mcp.cloudflare.com/mcp"
+
+[mcp_servers.github]
+url = "https://api.githubcopilot.com/mcp/"
+bearer_token_env_var = "GITHUB_PAT_TOKEN"
+
+[mcp_servers.stripe]
+url = "https://mcp.stripe.com"
+
+[mcp_servers.shadcn]
+command = "cmd"
+args = ["/c", "npx", "-y", "shadcn@latest", "mcp"]
+startup_timeout_sec = 120.0
+
+[mcp_servers.semgrep]
+url = "https://mcp.semgrep.ai/mcp"
+
+[mcp_servers.mcp-sdk-docs]
+url = "https://mcp.context7.com/mcp"

@@ -1,0 +1,69 @@
+{
+  "version": 3,
+  "skills": {
+    "defuddle": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/kepano/obsidian-skills.git",
+      "skillPath": "skills/defuddle/SKILL.md",
+      "skillFolderHash": "db0b775af7e7d603f59fa2b67bdef615baf1a48f",
+      "installedAt": "2026-05-06T02:21:28.170Z",
+      "updatedAt": "2026-05-06T02:21:28.170Z"
+    },
+    "json-canvas": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/kepano/obsidian-skills.git",
+      "skillPath": "skills/json-canvas/SKILL.md",
+      "skillFolderHash": "9df7971db7ffebf96f2a207840b9f4765aa11b04",
+      "installedAt": "2026-05-06T02:21:28.183Z",
+      "updatedAt": "2026-05-06T02:21:28.183Z"
+    },
+    "obsidian-bases": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/kepano/obsidian-skills.git",
+      "skillPath": "skills/obsidian-bases/SKILL.md",
+      "skillFolderHash": "4bef60bb848bfb02b4172b552626d5741b0d4057",
+      "installedAt": "2026-05-06T02:21:28.194Z",
+      "updatedAt": "2026-05-06T02:21:28.194Z"
+    },
+    "obsidian-cli": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/kepano/obsidian-skills.git",
+      "skillPath": "skills/obsidian-cli/SKILL.md",
+      "skillFolderHash": "96254a554e480359de7b685571876f2e7f9ba57d",
+      "installedAt": "2026-05-06T02:21:28.204Z",
+      "updatedAt": "2026-05-06T02:21:28.204Z"
+    },
+    "obsidian-markdown": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/kepano/obsidian-skills.git",
+      "skillPath": "skills/obsidian-markdown/SKILL.md",
+      "skillFolderHash": "5caf5d9e7de204f3904216857545f2aa36bcfcac",
+      "installedAt": "2026-05-06T02:21:28.216Z",
+      "updatedAt": "2026-05-06T02:21:28.216Z"
+    },
+    "playwright-cli": {
+      "source": "microsoft/playwright-cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/microsoft/playwright-cli.git",
+      "skillPath": "skills/playwright-cli/SKILL.md",
+      "skillFolderHash": "ff92cdde57ecce01607406a4667dc0f2772dfac1",
+      "installedAt": "2026-05-06T08:44:59.567Z",
+      "updatedAt": "2026-05-06T08:44:59.567Z"
+    },
+    "dev": {
+      "source": "microsoft/playwright-cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/microsoft/playwright-cli.git",
+      "skillPath": ".claude/skills/dev/SKILL.md",
+      "skillFolderHash": "e82f4edd419149ce7f5d87adf8d8b52f182ab1de",
+      "installedAt": "2026-05-06T08:44:59.589Z",
+      "updatedAt": "2026-05-06T08:44:59.589Z"
+    }
+  },
+  "dismissed": {}
+}

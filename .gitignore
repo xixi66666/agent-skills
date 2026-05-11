@@ -1,0 +1,15 @@
+.backup/
+*.log
+*.tmp
+
+# Keep local-only MCP or host overrides out of the shared repo.
+mcp/local*.toml
+mcp/host*.toml
+
+# Never store Codex runtime state or credentials here.
+auth.json
+state_*.sqlite
+logs_*.sqlite
+sessions/
+cache/
+.sandbox*/
