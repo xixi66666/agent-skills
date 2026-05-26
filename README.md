@@ -313,6 +313,25 @@ write-a-skill
 zoom-out
 ```
 
+本仓库也包含 `obra/superpowers` 5.1.0 中的以下 skills：
+
+```text
+brainstorming
+dispatching-parallel-agents
+executing-plans
+finishing-a-development-branch
+receiving-code-review
+requesting-code-review
+subagent-driven-development
+systematic-debugging
+test-driven-development
+using-git-worktrees
+using-superpowers
+verification-before-completion
+writing-plans
+writing-skills
+```
+
 ## 常见问题
 
 如果 PowerShell 阻止脚本运行，使用 README 里的 `-ExecutionPolicy Bypass` 命令即可。
