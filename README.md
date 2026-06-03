@@ -234,6 +234,25 @@ git push
 powershell -ExecutionPolicy Bypass -File .\scripts\sync.ps1
 ```
 
+同步完成后重启 Codex，让新加入或更新后的 skills 被重新扫描。
+
+### 其他主机更新到新增 skill
+
+当本仓库新增了 skill（例如 `vercel-deploy`）后，其他主机只需要进入各自 clone 的 `agent-skills` 仓库并运行：
+
+```powershell
+git pull --ff-only
+powershell -ExecutionPolicy Bypass -File .\scripts\sync.ps1 -NoPull
+```
+
+也可以直接运行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\sync.ps1
+```
+
+`sync.ps1` 会先拉取远端，再把仓库里的 `skills/` 同步到当前用户的 `~/.agents/skills`。同步完成后重启 Codex。
+
 ## 只同步其中一部分
 
 只同步 skills，不改 MCP：
@@ -331,6 +350,14 @@ verification-before-completion
 writing-plans
 writing-skills
 ```
+
+本仓库还包含 OpenAI curated skills 中的：
+
+```text
+vercel-deploy
+```
+
+`vercel-deploy` 用于把网站或应用部署到 Vercel。默认应创建 preview deployment；只有用户明确要求生产发布时，才使用 production deploy。
 
 ## 常见问题
 
