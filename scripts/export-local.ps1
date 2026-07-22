@@ -20,6 +20,8 @@ function Invoke-RobocopyChecked {
     if ($code -gt 7) {
         throw "robocopy failed with exit code $code"
     }
+
+    $global:LASTEXITCODE = 0
 }
 
 if (-not $SkipSkills) {

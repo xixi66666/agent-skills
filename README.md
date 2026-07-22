@@ -359,6 +359,28 @@ vercel-deploy
 
 `vercel-deploy` 用于把网站或应用部署到 Vercel。默认应创建 preview deployment；只有用户明确要求生产发布时，才使用 production deploy。
 
+本仓库还包含 `pbakaus/impeccable` 中的：
+
+```text
+impeccable
+```
+
+`impeccable` 用于设计、审查和改进前端界面，包含设计上下文初始化、UX/UI 评审、无障碍与响应式审计、视觉润色、动效、排版、布局及浏览器迭代等工作流。在 Codex 中使用 `$impeccable`，新项目前端设计建议先运行：
+
+```text
+$impeccable init
+```
+
+常用示例：
+
+```text
+$impeccable audit
+$impeccable critique landing
+$impeccable polish settings
+```
+
+本仓库同步的是用户级 `impeccable` skill。Impeccable 的 Codex 检测 Hook 属于项目级配置，不会随用户级 skill 自动安装；需要 Hook 时，在目标前端项目中按上游文档执行 `npx impeccable install --providers=codex --scope=project`，然后在 Codex 中打开 `/hooks` 并批准该项目 Hook。
+
 ## 常见问题
 
 如果 PowerShell 阻止脚本运行，使用 README 里的 `-ExecutionPolicy Bypass` 命令即可。
