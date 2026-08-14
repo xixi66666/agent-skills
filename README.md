@@ -381,6 +381,26 @@ $impeccable polish settings
 
 本仓库同步的是用户级 `impeccable` skill。Impeccable 的 Codex 检测 Hook 属于项目级配置，不会随用户级 skill 自动安装；需要 Hook 时，在目标前端项目中按上游文档执行 `npx impeccable install --providers=codex --scope=project`，然后在 Codex 中打开 `/hooks` 并批准该项目 Hook。
 
+本仓库还包含 `mvanhorn/last30days-skill` 中的：
+
+```text
+last30days
+```
+
+`last30days` 用于调研最近 30 天内任意话题的公开讨论。它会从 Reddit、X、YouTube、TikTok、Hacker News、Polymarket、GitHub 和网页抓取帖子与互动数据，并按话题汇总成有依据的结论；内置 doctor 健康检查可诊断失效或缺失的信息源。在 Codex 中使用 `$last30days`：
+
+```text
+$last30days nvidia earnings reaction
+```
+
+本仓库还包含 `Leonxlnx/taste-skill` 中的：
+
+```text
+gpt-taste
+```
+
+`gpt-taste` 用于让 AI 产出具有高级审美的前端界面，避免生成千篇一律的"AI 味"页面。它强调 Awwwards 级别的前端设计工程：打破常规的版式、严格的 GSAP 动效（ScrollTrigger 固定/堆叠/擦洗）、无缝 bento 网格、宽大的排版行宽与超大区块间距，并禁止使用表情符号和模板化的廉价文案。
+
 ## 常见问题
 
 如果 PowerShell 阻止脚本运行，使用 README 里的 `-ExecutionPolicy Bypass` 命令即可。
